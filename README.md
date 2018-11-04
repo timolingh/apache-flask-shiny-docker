@@ -1,6 +1,8 @@
 Most of the components of this repo were sourced from:
 [Craicerjack/apache-flask](https://github.com/Craicerjack/apache-flask)
 
+The file `apache-flask.conf` is edited to allow the the server to proxy for a Shiny server running in a separate container.
+
 ## Run it out of the box
 Build the container image
 ```
@@ -25,5 +27,5 @@ docker create --name flask \
   --publish 8080:80 \
   apache-flask-shiny
 
-docker run flask
+docker start flask
 ```

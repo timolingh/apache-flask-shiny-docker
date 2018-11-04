@@ -12,6 +12,7 @@ MAINTAINER timolin@gmail.com
 
 RUN apt-get update && apt-get install -y apache2 \
     libapache2-mod-wsgi \
+    libxml2-dev \
     build-essential \
     python \
     python-dev\
@@ -35,6 +36,12 @@ RUN apt-get update && apt-get install -y apache2 \
 
  COPY ./run.py /var/www/apache-flask/run.py
  COPY ./app /var/www/apache-flask/app/
+
+ RUN a2enmod proxy
+ RUN a2enmod proxy_http
+ RUN a2enmod proxy_html
+ RUN a2enmod proxy_wstunnel
+ RUN a2enmod rewrite
 
  RUN a2dissite 000-default.conf
  RUN a2ensite apache-flask.conf
