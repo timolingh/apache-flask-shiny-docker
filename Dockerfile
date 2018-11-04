@@ -5,7 +5,7 @@
 ############################################################
 
 # Set the base image
-FROM debian:latest
+FROM ubuntu:xenial
 
 # File Author / Maintainer
 MAINTAINER timolin@gmail.com
