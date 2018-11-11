@@ -4,7 +4,8 @@
     <li><a href="{{ url_for('shiny') }}" >Shiny Home Page</a></li>
     <br>
     {% for app in apps %}
-        <li><a href="{{ url_for('shiny', shinyapp=app.appname) }}">{{ app.label }}</a></li>
+        <!-- <li><a href="{{ url_for('shiny', shinyapp=app.appname) }}">{{ app.label }}</a></li> -->
+        <li><a href="http://localhost:3838/{{ app.appname }}">{{ app.label }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
