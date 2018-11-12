@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <ul>
-  
+
     <h2>Dashboard links</h2>
     {% for app in dashboardapps %}
         <!-- <li><a href="{{ url_for('shiny', shinyapp=app.appname) }}">{{ app.label }}</a></li> -->
@@ -13,5 +13,8 @@
         <li><a href="http://{{ ec2address }}/shiny/{{ app.appname }}">{{ app.label }}</a></li>
     {% endfor %}
 
+    <h2>Rstudio</h2>
+    <a href="http://10.0.0.150:8787">RStudio (Needs an account)</a>
+    <p>This is the RStudio IDE running on the Datascience server</p>
 </ul>
 {% endblock %}
