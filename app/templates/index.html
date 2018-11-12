@@ -1,11 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
 <ul>
-    <li><a href="{{ url_for('shiny') }}" >Shiny Home Page</a></li>
-    <br>
-    {% for app in apps %}
+  
+    <h2>Dashboard links</h2>
+    {% for app in dashboardapps %}
         <!-- <li><a href="{{ url_for('shiny', shinyapp=app.appname) }}">{{ app.label }}</a></li> -->
-        <li><a href="http://localhost:3838/{{ app.appname }}">{{ app.label }}</a></li>
+        <li><a href="http://{{ ec2address }}/shiny/{{ app.appname }}">{{ app.label }}</a></li>
     {% endfor %}
+
+    <h2>Shiny apps</h2>
+    {% for app in shinyapps %}
+        <li><a href="http://{{ ec2address }}/shiny/{{ app.appname }}">{{ app.label }}</a></li>
+    {% endfor %}
+
 </ul>
 {% endblock %}
